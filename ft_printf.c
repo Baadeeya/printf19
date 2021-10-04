@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:28:59 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/04 15:04:11 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/04 15:35:24 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_set_points(t_conv *conv)
 	conv->d = 0;
 	conv->u = 0;
 	conv->i = 0;
-	conv->x = 0;
-	conv->X = 0;
+	conv->x1 = 0;
+	conv->x2 = 0;
 }
 
 int	ft_printf(const char *str, ...)
@@ -30,7 +30,7 @@ int	ft_printf(const char *str, ...)
 	t_conv	*conv;
 
 	if (!str)
-		return (-1);
+		return (0);
 	ret = 0;
 	va_start(g_conv, str);
 	while (str)
