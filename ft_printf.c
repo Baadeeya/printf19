@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:36:03 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/04 13:32:50 by dgutin           ###   ########.fr       */
+/*   Created: 2021/10/04 13:28:59 by dgutin            #+#    #+#             */
+/*   Updated: 2021/10/04 13:38:15 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
-
-int		ft_printf(const char *, ...);
-
-typedef struct	s_conv;
+void	ft_set_points(t_conv *conv)
 {
-	int			c;
-	int			s;
-	int			p;
-	int			d;
-	int			u;
-	int			i;
-	int			x;
-	int			X;
-}				t_conv;
+	conv->c = 0;
+	conv->s = 0;
+	conv->p = 0;
+	conv->d = 0;
+	conv->u = 0;
+	conv->i = 0;
+	conv->x = 0;
+	conv->X = 0;
+}
 
-#endif
+int	ft_printf(const char *str, ...)
+{
+	int		ret;
+	t_conv	*conv;
+
+	ft_set_points(&conv);
+}
