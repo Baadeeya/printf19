@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:28:59 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/04 13:38:15 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/04 15:04:11 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,13 @@ int	ft_printf(const char *str, ...)
 	int		ret;
 	t_conv	*conv;
 
-	ft_set_points(&conv);
+	if (!str)
+		return (-1);
+	ret = 0;
+	va_start(g_conv, str);
+	while (str)
+	{
+	}
+	ft_set_points(conv);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 12:36:03 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/04 13:32:50 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/04 15:09:20 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *str, ...);
 
-typedef struct	s_conv;
+typedef struct s_conv
 {
+	va_list		conv;
 	int			c;
 	int			s;
 	int			p;
 	int			d;
 	int			u;
 	int			i;
-	int			x;
-	int			X;
+	int			x1;
+	int			x2;
 }				t_conv;
 
 #endif
