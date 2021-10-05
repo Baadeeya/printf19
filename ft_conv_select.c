@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_conv_select.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:36:03 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/05 17:07:44 by dgutin           ###   ########.fr       */
+/*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
+/*   Updated: 2021/10/05 17:45:56 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_parsing(const char *str, va_list arg, int i)
+{
+	int				index;
+	const char		flags[10];
+	static t_tab	tab[8] = {c_conv, s_conv, p_conv, d_conv, i_conv, u_conv,
+		x_conv, x2_convm prct_conv};
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <stdarg.h>
-
-int		ft_printf(const char *str, ...);
-
-typedef int		(*t_tab)(char *str, int i, va_list arg);
-
-#endif
+	flags = "cspdiuxX%";
+	index = 0;
+}
