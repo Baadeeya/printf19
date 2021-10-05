@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:36:03 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/05 14:54:59 by dgutin           ###   ########.fr       */
+/*   Created: 2021/10/05 15:15:03 by dgutin            #+#    #+#             */
+/*   Updated: 2021/10/05 15:18:07 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <stdarg.h>
-
-int		ft_printf(const char *str, ...);
-
-va_list			g_conv;
-
-typedef int		(*t_tab)(char *str, int i);
-
-typedef struct s_conv
+int	ft_isnum(char c)
 {
-	int			c;
-	int			s;
-	int			p;
-	int			d;
-	int			u;
-	int			x;
-}				t_conv;
-
-#endif
+	return (c >= "0" && c <= "9");
+}
