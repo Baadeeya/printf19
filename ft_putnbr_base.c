@@ -6,16 +6,11 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:06:31 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/05 15:21:23 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/11 13:37:50 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
 
 int		ft_base(char c, char *base)
 {

@@ -2,6 +2,9 @@
 
 int	main(void)
 {
-	printf("coucou lol");
+	int i = 0;
+
+	i = (printf("%y lol", "r"));
+	printf("%d", i);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:28:59 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/05 17:46:57 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/11 13:38:51 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,12 @@ int	ft_printf(const char *str, ...)
 			if (ft_isnum(str[i]))
 				ft_putnbr_base(str[i++] - 48, "0123456789");
 			else
-				write(1, &str[i++], 1);
+				ft_putchar(str[i++]);
 		}
 		if (!str[i])
 			break ;
 		i++;
-		len += (ft_parsing(str, arg, i));
-		i++;
+		len += (ft_parsing(str, arg, i++));
 	}
 	va_end(arg);
 	return (len + i);
