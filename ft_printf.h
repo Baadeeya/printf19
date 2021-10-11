@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 12:36:03 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/05 17:07:44 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/11 15:50:32 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 int		ft_printf(const char *str, ...);
 
-typedef int		(*t_tab)(char *str, int i, va_list arg);
+typedef unsigned long int	intptr;
+typedef int					(*t_tab)(va_list arg);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:06:31 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/11 13:37:50 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/11 14:39:56 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_base(char c, char *base)
+static int	ft_base(char c, char *base)
 {
 	while (*base)
 		if (c == *base++)
@@ -20,7 +20,7 @@ int		ft_base(char c, char *base)
 	return (0);
 }
 
-void	ft_display(unsigned int n, char *base, unsigned int i)
+static void	ft_display(unsigned int n, char *base, unsigned int i)
 {
 	if (n > i - 1)
 	{
@@ -30,7 +30,7 @@ void	ft_display(unsigned int n, char *base, unsigned int i)
 	ft_putchar(base[n]);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void		ft_putnbr_base(int nbr, char *base)
 {
 	int i;
 
