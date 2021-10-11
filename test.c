@@ -1,18 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
+#include "ft_printf.h"
 
 int	main(void)
 {
-	int 	i = 0;
-	char	str[] = "salut";
-	char	*ptr;
+	intptr 	i = 0;
 
-//	ptr = malloc(sizeof(char *) * 40);
-	printf("%s", ptr);
-	free(ptr);
+	ft_putnbr_base(i, "0123456789abcdef");
+	printf("\n%d\n",(int)i);
+//	intptr	ptr;
+//	ptr = (intptr)str;
 
-//	i = (printf("%y lol", "r"));
-//	printf("%d", i);
+
 	return (0);
 }

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 15:06:31 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/11 14:39:56 by dgutin           ###   ########.fr       */
+/*   Created: 2021/10/11 17:24:22 by dgutin            #+#    #+#             */
+/*   Updated: 2021/10/11 17:26:20 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_base(char c, char *base)
+int		ft_base(char c, char *base)
 {
 	while (*base)
 		if (c == *base++)
@@ -20,19 +20,19 @@ static int	ft_base(char c, char *base)
 	return (0);
 }
 
-static void	ft_display(unsigned int n, char *base, unsigned int i)
+void	ft_display(intptr n, char *base, intptr i)
 {
 	if (n > i - 1)
 	{
 		ft_display(n / i, base, i);
 		n %= i;
 	}
-	ft_putchar(base[n]);
+	ft_putchar_fd(base[n], 1);
 }
 
-void		ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(intptr nbr, char *base)
 {
-	int i;
+	intptr i;
 
 	i = 0;
 	while (base[i])
@@ -47,7 +47,7 @@ void		ft_putnbr_base(int nbr, char *base)
 		return ;
 	if (nbr < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_fd('-', 1);
 		ft_display(-nbr, base, i);
 	}
 	else

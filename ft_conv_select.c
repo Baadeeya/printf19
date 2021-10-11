@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/11 15:46:49 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/11 17:00:09 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,33 @@ int		ft_sconv(va_list arg)
 	return (i);
 }
 
-char	ft_hex_digits(int h)
+int		ft_pconv(va_list arg)
 {
-	if (h >= 0 && h < 0)
-		return ('0' + v);
-	else
-		return ('a' + v - 10);
+	void	*ptr;
+	intptr	adr;
+	int		i;
+
+	ptr = va_arg(arg, void *);
+	adr = (intptr)ptr;
+	ft_putchar_fd("0x", 1);
+	i = 0;
+	
+}
+
+int		ft_xconv(va_list arg)
+{
+	int		i;
+	intptr	x;
+
+	i = 0;
+	x = va_arg(arg, int);
+	ft_putnbr_base(x, "0123456789abcdef");
+	while (x / 16)
+	{
+		x /= 16;
+		i++;
+	}
+	return (i + 1);
 }
 
 int		ft_pconv(va_list arg)
