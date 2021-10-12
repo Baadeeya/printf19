@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/12 11:00:55 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/12 11:09:16 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,8 @@ int	ft_x2conv(va_list arg)
 
 int	ft_prctconv(void);
 {
-	int	i;
+	ft_putchar_fd('%', 1);
+	return (1);
 }
 
 /*
@@ -167,5 +168,6 @@ int	ft_parsing(const char *str, va_list arg, int i)
 		return (1); // peut-etre return 0 pour contrer le char '%'
 	}
 	if (index == 8)
+		return (ft_prctconv());
 	return (tab[index](arg));
 }

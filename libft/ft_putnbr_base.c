@@ -6,41 +6,40 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:36:07 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/12 10:36:36 by dgutin           ###   ########.fr       */
+/*   Updated: 2021/10/12 11:05:54 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-int		ft_base(char c, char *base)
+static int	ft_base(char c, char *base)
 {
 	while (*base)
 		if (c == *base++)
 			return (1);
 	return (0);
 }
-void	ft_display(unsigned int n, char *base, unsigned int i)
+
+static void	ft_display(unsigned int n, char *base, unsigned int i)
 {
 	if (n > i - 1)
 	{
 		ft_display(n / i, base, i);
 		n %= i;
 	}
-	ft_putchar(base[n]);
+	ft_putchar_fd(base[n], 1);
 }
+
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int i;
+	int	i;
+
 	i = 0;
 	while (base[i])
 	{
 		if (base[i] == '+' || base[i] == '-'
-				|| base[i] == ' ' || (base[i] >= 9 && base[i] <= 13)
-				|| ft_base(base[i], base + i + 1))
+			|| base[i] == ' ' || (base[i] >= 9 && base[i] <= 13)
+			|| ft_base(base[i], base + i + 1))
 			return ;
 		i++;
 	}
@@ -48,7 +47,7 @@ void	ft_putnbr_base(int nbr, char *base)
 		return ;
 	if (nbr < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_fd('-', 1);
 		ft_display(-nbr, base, i);
 	}
 	else
