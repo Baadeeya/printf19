@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 12:36:03 by dgutin            #+#    #+#             */
-/*   Updated: 2021/10/12 11:44:14 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/14 15:40:08 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 # include "libft/libft.h"
 # include <stdarg.h>
+# include <unistd.h>
 
+int						ft_printf(const char *str, ...);
 typedef long int		intptr;
 typedef int				(*t_tab)(va_list arg);
 
 //int		ft_printf(const char *str, ...);
-void	ft_putnbr_base(int nbr, char *base);
+// void	ft_putnbr_base(int nbr, char *base);
 int		main(void);
 
 #endif

@@ -2,10 +2,6 @@
 
 int		main(void)
 {
-	int i;
-
-	i = 42;
-
-	ft_putnbr_base(i, "01");
+	ft_printf("%c", 'U');
 	return (0);
 }

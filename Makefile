@@ -6,37 +6,42 @@
 #    By: dgutin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 14:40:48 by dgutin            #+#    #+#              #
-#    Updated: 2021/10/04 14:48:04 by dgutin           ###   ########.fr        #
+#    Updated: 2022/03/14 17:00:35 by dgutin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= ft_printf.c \
-			  ft_toutlerestelatmtc
-	
-OBJS		= ${SRCS:.c=.o}
+			  ft_conv_select.c \
 
 NAME		= libftprintf.a
 
-LIBFT		= lifbt/
+OBJS		= ${SRCS:.c=.o}
 
 CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-$(NAME):	$(OBJS)
-	@make all -c $(LIBFT)
-	ar -rcs $@ $^
+libft.a:
+		$(MAKE) -C libft/
+		cp libft/libft.a .
+		mv libft.a libftprintf.a
+
+$(NAME):	$(OBJS) libft.a
+		ar -rcs $@ $^
 
 .c.o:
 	${CC} ${CFLAGS} -c -I./includes $< -o ${<:.c=.o}
+		
 
 all:		${NAME}
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) all
+	$(MAKE) clean -C libft/
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) all
+	$(MAKE) fclean -C libft/
 
 re: fclean all
 
