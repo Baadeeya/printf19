@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/14 18:13:54 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/14 19:27:28 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	ft_pconv(va_list arg)
 	void	*ptr;
 	intptr	adr;
 	int		i;
-	int		x;
+	intptr	x;
 
-	x = 0;
 	ptr = va_arg(arg, void *);
 	adr = (intptr)ptr;
+	x = 0;
 	ft_putstr_fd("0x", 1);
 	i = 0;
 	ft_putnbr_base(adr, "0123456789abcdef");
