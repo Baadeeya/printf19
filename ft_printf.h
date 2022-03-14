@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 12:36:03 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/14 15:40:08 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/14 17:35:10 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ typedef int				(*t_tab)(va_list arg);
 
 //int		ft_printf(const char *str, ...);
 // void	ft_putnbr_base(int nbr, char *base);
-int		main(void);
 
 #endif

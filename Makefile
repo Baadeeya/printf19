@@ -6,12 +6,12 @@
 #    By: dgutin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 14:40:48 by dgutin            #+#    #+#              #
-#    Updated: 2022/03/14 17:00:35 by dgutin           ###   ########.fr        #
+#    Updated: 2022/03/14 17:58:19 by dgutin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= ft_printf.c \
-			  ft_conv_select.c \
+			  ft_conv_select.c 
 
 NAME		= libftprintf.a
 
@@ -21,13 +21,11 @@ CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-libft.a:
+$(NAME):	$(OBJS) libft/
 		$(MAKE) -C libft/
 		cp libft/libft.a .
-		mv libft.a libftprintf.a
-
-$(NAME):	$(OBJS) libft.a
-		ar -rcs $@ $^
+		mv libft.a $(NAME)
+		ar -rcs $(NAME) $(OBJS)
 
 .c.o:
 	${CC} ${CFLAGS} -c -I./includes $< -o ${<:.c=.o}
