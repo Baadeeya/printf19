@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 12:36:03 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/14 17:35:10 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/14 18:22:02 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 
 int						ft_printf(const char *str, ...);
+int						ft_parsing(const char *str, va_list, int i);
 typedef long int		intptr;
 typedef int				(*t_tab)(va_list arg);
 

@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:28:59 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/14 15:47:16 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/14 18:15:34 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_printf(const char *str, ...)
 		if (!str[i])
 			break ;
 		i++;
-//		len += (ft_parsing(str, arg, i++));
+		len += (ft_parsing(str, arg, i++));
 	}
 	va_end(arg);
 	return (len + i);

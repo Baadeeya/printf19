@@ -6,12 +6,12 @@
 #    By: dgutin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 14:40:48 by dgutin            #+#    #+#              #
-#    Updated: 2022/03/14 17:58:19 by dgutin           ###   ########.fr        #
+#    Updated: 2022/03/14 18:16:56 by dgutin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= ft_printf.c \
-			  ft_conv_select.c 
+			  ft_conv_select.c \
 
 NAME		= libftprintf.a
 

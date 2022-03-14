@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/14 16:01:43 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/14 18:13:54 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,13 @@ int	ft_cconv(va_list arg)
 
 int	ft_sconv(va_list arg)
 {
-	size_t	i;
 	char	*str;
 
 	if (!arg)
 		return (-1);
-	i = 0;
 	str = va_arg(arg, char *);
-	while (i < ft_strlen(str))
-	{
-		ft_putchar_fd(str[i], 1);
-		i++;
-	}
-	return (i);
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }
 
 int	ft_pconv(va_list arg)
