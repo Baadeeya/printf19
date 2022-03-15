@@ -2,8 +2,8 @@
 
 int		main(void)
 {
-	int x = 50;
-	int *ptr = &x;
+	char x[] = "Petit bichon";
+	void *ptr = &x;
 
 	ft_printf("The address is: %p", ptr);
 	return (0);

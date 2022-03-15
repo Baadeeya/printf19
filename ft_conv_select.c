@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/14 19:27:28 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/15 15:16:33 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,28 @@ int	ft_sconv(va_list arg)
 	return (ft_strlen(str));
 }
 
+int	ft_puthex(uintptr_t n, char *base, unsigned int i)
+{
+	int	x;
+
+	x = 0;
+	if (n > i - 1)
+	{
+		ft_puthex(n / i, base, i);
+		n %= i;
+		x++;
+	}
+	ft_putchar_fd(base[n], 1);
+	return (x);
+}
+
 int	ft_pconv(va_list arg)
 {
-	void	*ptr;
-	intptr	adr;
-	int		i;
-	intptr	x;
+	uintptr_t	x;
 
-	ptr = va_arg(arg, void *);
-	adr = (intptr)ptr;
-	x = 0;
+	x = (uintptr_t)va_arg(arg, int);
 	ft_putstr_fd("0x", 1);
-	i = 0;
-	ft_putnbr_base(adr, "0123456789abcdef");
-	while (adr / 16)
-	{
-		x /= 16;
-		i++;
-	}
-	return (i + 3);
+	return (ft_puthex(x, "0123456789abcdef", 16) + 2);
 }
 
 int	ft_dconv(va_list arg)
@@ -94,8 +97,8 @@ int	ft_uconv(va_list arg)
 
 int	ft_xconv(va_list arg)
 {
-	int		i;
-	intptr	x;
+	int			i;
+	uintptr_t	x;
 
 	i = 0;
 	x = va_arg(arg, int);
@@ -110,8 +113,8 @@ int	ft_xconv(va_list arg)
 
 int	ft_x2conv(va_list arg)
 {
-	int		i;
-	intptr	x;
+	int			i;
+	uintptr_t	x;
 
 	i = 0;
 	x = va_arg(arg, int);
@@ -130,25 +133,6 @@ int	ft_prctconv(void)
 	return (1);
 }
 
-/*
-int	ft_pconv(va_list arg)
-{
-	int		count;
-	int		i;
-	void	*ptr;
-
-	if (!arg)
-		return (-1);
-	count = 0;
-	ptr = va_arg(arg, void);
-	i = (sizeof(ptr) << 3) - 4;
-	while (i >= 0)
-	{
-		ft_putchar(ft_hex_digits((p >> i) & 0xf));
-		i -= 4;
-	}
-}
-*/
 int	ft_parsing(const char *str, va_list arg, int i)
 {
 	int				index;
