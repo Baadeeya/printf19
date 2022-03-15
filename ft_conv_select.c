@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/15 15:16:33 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/15 18:40:02 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,21 @@ int	ft_sconv(va_list arg)
 	return (ft_strlen(str));
 }
 
-int	ft_puthex(uintptr_t n, char *base, unsigned int i)
-{
-	int	x;
-
-	x = 0;
-	if (n > i - 1)
-	{
-		ft_puthex(n / i, base, i);
-		n %= i;
-		x++;
-	}
-	ft_putchar_fd(base[n], 1);
-	return (x);
-}
-
 int	ft_pconv(va_list arg)
 {
+	int			i;
 	uintptr_t	x;
 
-	x = (uintptr_t)va_arg(arg, int);
+	x = va_arg(arg, uintptr_t);
+	i = 0;
 	ft_putstr_fd("0x", 1);
-	return (ft_puthex(x, "0123456789abcdef", 16) + 2);
+	ft_putptr_base(x, "0123456789abcdef");
+	while (x / 16)
+	{
+		x /= 16;
+		i++;
+	}
+	return (i + 3);
 }
 
 int	ft_dconv(va_list arg)
@@ -71,7 +64,9 @@ int	ft_dconv(va_list arg)
 		x /= 10;
 		i++;
 	}
-	return (i + 1);
+	if (x >= 0)
+		return (i - 1);
+	return (i);
 }
 
 int	ft_iconv(va_list arg)
@@ -92,7 +87,7 @@ int	ft_uconv(va_list arg)
 		x /= 10;
 		i++;
 	}
-	return (i + 1);
+	return (i - 1);
 }
 
 int	ft_xconv(va_list arg)
@@ -108,7 +103,9 @@ int	ft_xconv(va_list arg)
 		x /= 16;
 		i++;
 	}
-	return (i + 1);
+	if (x >= 0)
+		return (i - 1);
+	return (i);
 }
 
 int	ft_x2conv(va_list arg)
@@ -124,7 +121,9 @@ int	ft_x2conv(va_list arg)
 		x /= 16;
 		i++;
 	}
-	return (i + 1);
+	if (x >= 0)
+		return (i - 1);
+	return (i);
 }
 
 int	ft_prctconv(void)
@@ -136,20 +135,19 @@ int	ft_prctconv(void)
 int	ft_parsing(const char *str, va_list arg, int i)
 {
 	int				index;
-	char			flags[10] = "cspdiuxX%";
+	char			flags[9] = "cspdiuxX%";
 	static t_tab	tab[8] = {ft_cconv, ft_sconv, ft_pconv, ft_dconv, ft_iconv,
 		ft_uconv, ft_xconv, ft_x2conv};
 
-	//flags = "cspdiuxX%";
 	index = 0;
 	while (str[i] != flags[index])
 		index++;
+	if (index == 8)
+		return (ft_prctconv());
 	if (str[i] != flags [index])
 	{
 		ft_putchar_fd(str[i], 1);
-		return (1); // peut-etre return 0 pour contrer le char '%'
+		return (0);
 	}
-	if (index == 8)
-		return (ft_prctconv());
 	return (tab[index](arg));
 }
