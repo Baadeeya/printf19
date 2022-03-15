@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/15 18:40:02 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/15 19:04:16 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int	ft_xconv(va_list arg)
 	uintptr_t	x;
 
 	i = 0;
-	x = va_arg(arg, int);
-	ft_putnbr_base(x, "0123456789abcdef");
+	x = va_arg(arg, uintptr_t);
+	ft_putptr_base(x, "0123456789abcdef");
 	while (x / 16)
 	{
 		x /= 16;
@@ -114,8 +114,8 @@ int	ft_x2conv(va_list arg)
 	uintptr_t	x;
 
 	i = 0;
-	x = va_arg(arg, int);
-	ft_putnbr_base(x, "0123456789ABCDEF");
+	x = va_arg(arg, uintptr_t);
+	ft_putptr_base(x, "0123456789ABCDEF");
 	while (x / 16)
 	{
 		x /= 16;
@@ -129,7 +129,7 @@ int	ft_x2conv(va_list arg)
 int	ft_prctconv(void)
 {
 	ft_putchar_fd('%', 1);
-	return (1);
+	return (0);
 }
 
 int	ft_parsing(const char *str, va_list arg, int i)
