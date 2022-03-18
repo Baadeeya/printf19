@@ -6,13 +6,13 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:28:59 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/18 16:25:11 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/18 17:00:24 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printalnum(const char *str, int i)
+static void	ft_printalnum(const char *str, int i)
 {
 	if (ft_isdigit(str[i]))
 		ft_putnbr_base(str[i] - 48, "0123456789");

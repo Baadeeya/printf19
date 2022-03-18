@@ -6,133 +6,13 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:25:26 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/18 16:27:43 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/18 17:00:15 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_cconv(va_list arg)
-{
-	int	c;
-
-	if (!arg)
-		return (-1);
-	c = va_arg(arg, int);
-	ft_putchar_fd(c, 1);
-	return (1);
-}
-
-int	ft_sconv(va_list arg)
-{
-	char	*str;
-
-	if (!arg)
-		return (-1);
-	str = va_arg(arg, char *);
-	ft_putstr_fd(str, 1);
-	return ((int)ft_strlen(str));
-}
-
-int	ft_pconv(va_list arg)
-{
-	int			i;
-	uintptr_t	x;
-
-	x = va_arg(arg, uintptr_t);
-	ft_putstr_fd("0x", 1);
-	i = 3;
-	ft_putptr_base(x, "0123456789abcdef");
-	while (x / 16)
-	{
-		x /= 16;
-		i++;
-	}
-	return (i);
-}
-
-int	ft_dconv(va_list arg)
-{
-	int	i;
-	int	x;
-
-	i = 0;
-	x = va_arg(arg, int);
-	ft_putnbr_fd(x, 1);
-	while (x / 10)
-	{
-		x /= 10;
-		i++;
-	}
-	if (x >= 0)
-		return (i - 1);
-	return (i);
-}
-
-int	ft_iconv(va_list arg)
-{
-	return (ft_dconv(arg));
-}
-
-int	ft_uconv(va_list arg)
-{
-	int				i;
-	unsigned int	x;
-
-	i = 0;
-	x = va_arg(arg, unsigned int);
-	ft_putnbr_fd(x, 1);
-	while (x / 10)
-	{
-		x /= 10;
-		i++;
-	}
-	return (i - 1);
-}
-
-int	ft_xconv(va_list arg)
-{
-	int			i;
-	uintptr_t	x;
-
-	i = 1;
-	x = va_arg(arg, uintptr_t);
-	ft_putptr_base(x, "0123456789abcdef");
-	while (x / 16)
-	{
-		x /= 16;
-		i++;
-	}
-	if (x >= 0)
-		return (i);
-	return (i + 1);
-}
-
-int	ft_x2conv(va_list arg)
-{
-	int			i;
-	uintptr_t	x;
-
-	i = 1;
-	x = va_arg(arg, uintptr_t);
-	ft_putptr_base(x, "0123456789ABCDEF");
-	while (x / 16)
-	{
-		x /= 16;
-		i++;
-	}
-	if (x >= 0)
-		return (i);
-	return (i + 1);
-}
-
-int	ft_prctconv(void)
-{
-	ft_putchar_fd('%', 1);
-	return (1);
-}
-
-int	ft_isconv(const char *str, int i)
+static int	ft_isconv(const char *str, int i)
 {
 	if (str[i] == 'c')
 		return (0);
@@ -141,7 +21,7 @@ int	ft_isconv(const char *str, int i)
 	if (str[i] == 'p')
 		return (2);
 	if (str[i] == 'd')
-		return (3); 
+		return (3);
 	if (str[i] == 'i')
 		return (4);
 	if (str[i] == 'u')
