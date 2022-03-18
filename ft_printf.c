@@ -6,41 +6,45 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:28:59 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/15 18:27:48 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/18 16:25:11 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+void	ft_printalnum(const char *str, int i)
+{
+	if (ft_isdigit(str[i]))
+		ft_putnbr_base(str[i] - 48, "0123456789");
+	else
+		ft_putchar_fd(str[i], 1);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	int		i;
 	int		x;
-	int		o;
-	int		len;
+	int		ret;
 	va_list	arg;
 
 	i = 0;
-	len = 0;
-	o = 0;
+	ret = 0;
+	x = 0;
 	va_start(arg, str);
 	while (str[i])
 	{
 		while (str[i] != '%' && str[i])
 		{
-			if (ft_isdigit(str[i]))
-				ft_putnbr_base(str[i++] - 48, "0123456789");
-			else
-				ft_putchar_fd(str[i++], 1);
+			ft_printalnum(str, i++);
+			ret++;
 		}
-		o = i;
 		if (!str[i])
 			break ;
 		x = ft_parsing(str, arg, ++i);
-		if (x)
-			len += x;
-		i++;
+		ret += x;
+		if (str[i])
+			i++;
 	}
 	va_end(arg);
-	return (len + o);
+	return (ret);
 }

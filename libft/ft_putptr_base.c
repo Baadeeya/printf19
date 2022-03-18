@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:23:34 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/15 17:25:44 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/18 15:42:42 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ft_display(uintptr_t n, char *base, uintptr_t i)
 
 void	ft_putptr_base(uintptr_t nbr, char *base)
 {
-	int	i;
+	uintptr_t	i;
 
 	i = 0;
 	while (base[i])
