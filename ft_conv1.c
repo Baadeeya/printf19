@@ -6,7 +6,7 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:54:00 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/18 16:55:28 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/18 18:48:00 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int	ft_sconv(va_list arg)
 	if (!arg)
 		return (-1);
 	str = va_arg(arg, char *);
+	if (!str)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
 	ft_putstr_fd(str, 1);
 	return ((int)ft_strlen(str));
 }
@@ -56,7 +61,7 @@ int	ft_dconv(va_list arg)
 	int	i;
 	int	x;
 
-	i = 0;
+	i = 1;
 	x = va_arg(arg, int);
 	ft_putnbr_fd(x, 1);
 	while (x / 10)
@@ -65,8 +70,8 @@ int	ft_dconv(va_list arg)
 		i++;
 	}
 	if (x >= 0)
-		return (i - 1);
-	return (i);
+		return (i);
+	return (i + 1);
 }
 
 int	ft_iconv(va_list arg)

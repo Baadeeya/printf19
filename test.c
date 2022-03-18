@@ -1,18 +1,19 @@
 #include "ft_printf.h"
-#include "stdio.h"
+#include <stdio.h>
+#include <limits.h>
 
 int		main(void)
 {
-	char			s[] = "Petit bichon";
+	char			*s = NULL;
 	void			*ptr = &s;
 	int				a = 0;;
-	int				b = -422;	
+	unsigned int	b = -1;	
 	char			c = 'B';
 
-	a = printf("%p//%p%%", ptr, &ptr);
+	a = printf("%s", s);
 //	a = printf("This is Mambo number 5");
 	printf(" -- Size = %d \n", a);
-	a = ft_printf("%p//%p%%", ptr, &ptr);
+	a = ft_printf("%s", s);
 //	a = ft_printf("This is Mambo number 5");
 	printf(" -- Size = %d", a);
 	return (0);

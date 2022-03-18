@@ -6,36 +6,46 @@
 /*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:54:18 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/18 17:02:02 by dgutin           ###   ########.fr       */
+/*   Updated: 2022/03/18 18:42:09 by dgutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	ft_putnbr_uconv(unsigned int n)
+{
+	if (n > 9)
+	{
+		ft_putnbr_uconv(n / 10);
+		n %= 10;
+	}
+	ft_putchar_fd(n + 48, 1);
+}
 
 int	ft_uconv(va_list arg)
 {
 	int				i;
 	unsigned int	x;
 
-	i = 0;
+	i = 1;
 	x = va_arg(arg, unsigned int);
-	ft_putnbr_fd(x, 1);
+	ft_putnbr_uconv(x);
 	while (x / 10)
 	{
 		x /= 10;
 		i++;
 	}
-	return (i - 1);
+	return (i);
 }
 
 int	ft_xconv(va_list arg)
 {
-	int			i;
-	uintptr_t	x;
+	int				i;
+	unsigned int	x;
 
 	i = 1;
-	x = va_arg(arg, uintptr_t);
-	ft_putptr_base(x, "0123456789abcdef");
+	x = va_arg(arg, unsigned int);
+	ft_putunbr_base(x, "0123456789abcdef");
 	while (x / 16)
 	{
 		x /= 16;
@@ -48,12 +58,12 @@ int	ft_xconv(va_list arg)
 
 int	ft_x2conv(va_list arg)
 {
-	int			i;
-	uintptr_t	x;
+	int				i;
+	unsigned int	x;
 
 	i = 1;
-	x = va_arg(arg, uintptr_t);
-	ft_putptr_base(x, "0123456789ABCDEF");
+	x = va_arg(arg, unsigned int);
+	ft_putunbr_base(x, "0123456789ABCDEF");
 	while (x / 16)
 	{
 		x /= 16;
