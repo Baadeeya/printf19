@@ -6,7 +6,7 @@
 #    By: dagutin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 13:00:39 by dagutin           #+#    #+#              #
-#    Updated: 2022/10/03 13:57:35 by dagutin          ###   ########.fr        #
+#    Updated: 2023/06/20 15:43:25 by dagutin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ SRCS		= ft_atoi.c \
 			ft_memset.c \
 			ft_putchar_fd.c \
 			ft_putendl_fd.c \
+			ft_putunbr_base.c \
+			ft_putnbr_base.c \
 			ft_putnbr_fd.c \
+			ft_putptr_base.c \
 			ft_putstr_fd.c \
 			ft_split.c \
 			ft_strmapi.c \

@@ -6,7 +6,7 @@
 /*   By: dagutin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:08:52 by dagutin           #+#    #+#             */
-/*   Updated: 2022/10/03 13:52:10 by dagutin          ###   ########.fr       */
+/*   Updated: 2023/06/20 14:45:10 by dagutin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr_base(int nbr, char *base);
+void				ft_putunbr_base(unsigned int nbr, char *base);
+void				ft_putptr_base(uintptr_t nbr, char *base);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 char				**ft_split(char const *s, char c);
