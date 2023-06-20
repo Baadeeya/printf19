@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgutin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dagutin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:05:04 by dgutin            #+#    #+#             */
-/*   Updated: 2022/03/18 18:40:25 by dgutin           ###   ########.fr       */
+/*   Created: 2022/10/03 13:08:52 by dagutin           #+#    #+#             */
+/*   Updated: 2022/10/03 13:52:10 by dagutin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
-void				ft_putunbr_base(unsigned int nbr, char *base);
-void				ft_putnbr_base(int nbr, char *base);
 void				ft_putnbr_fd(int n, int fd);
-void				ft_putptr_base(uintptr_t nbr, char *base);
 void				ft_putstr_fd(char *s, int fd);
 char				**ft_split(char const *s, char c);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -64,6 +61,7 @@ char				*ft_strnstr(const char *haystack, const char *needle, \
 					size_t len);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strdup(const char *s1);
+void				ft_striteri(char *s, void (*f)(unsigned int, char*));
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);

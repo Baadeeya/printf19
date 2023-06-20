@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgutin <dgutin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: dagutin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/05 17:31:25 by dgutin            #+#    #+#             */
-/*   Updated: 2020/11/23 15:04:20 by dgutin           ###   ########.fr       */
+/*   Created: 2022/10/03 13:06:31 by dagutin           #+#    #+#             */
+/*   Updated: 2022/10/03 18:25:06 by dagutin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
 
+	if (c > 256)
+		c -= 256;
 	i = -1;
 	if (c == 0)
 		return ((char *)s + ft_strlen((char *)s));
